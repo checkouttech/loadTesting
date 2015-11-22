@@ -4,7 +4,7 @@
     <case>
         <url>${http_server}/requestdetails</url>
         <method>POST</method>
-        <body file="data.json"> </body>
+        <body file="./pylot/data.json"> </body>
         <add_header>Content-type: application/json</add_header>
         <cookie>cookieName: cookieValue</cookie>
     </case>
