@@ -1,5 +1,15 @@
 <testcases>
     <!-- SAMPLE TEST CASE -->
+    <param name="http_server" value="http://192.168.150.110:23456" />
+    <case>
+        <url>${http_server}/requestdetails</url>
+        <method>POST</method>
+        <body file="data.json"> </body>
+        <add_header>Content-type: application/json</add_header>
+        <cookie>cookieName: cookieValue</cookie>
+    </case>
+
+    <!-- 
     <case>
         <url>http://192.168.150.110:10001/requestdetails</url>
         <method>POST</method>
@@ -8,13 +18,17 @@
         <cookie>"cookieName=cookieValue"</cookie>
     </case>
 
+    -->
     <!-- SAMPLE TEST CASE -->
     <!--
     <case>
         <url>http://search.yahooapis.com/WebSearchService/V1/webSearch</url>
         <method>POST</method>
         <body><![CDATA[appid=YahooDemo&query=pylot]]></body>
+        <body>{"accept_language":"en-us,en;q=0.5","auction_id":"e59cf7f965e5634770bec77b8e234e8447da8992"}</body>
         <add_header>Content-type: application/x-www-form-urlencoded</add_header>
+        <verify>ad</verify>
+        <verify_negative>error</verify_negative>
     </case>
     -->
 </testcases>
