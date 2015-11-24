@@ -1,0 +1,112 @@
+apache bench -----
+
+
+Get installed with apache
+
+
+ab -t2 -c 100 -g out.data   http://192.168.150.110:10001/requestdetails
+
+
+
+
+Pylot  ------
+
+mkdir pylot
+cd pylot/
+wget http://pylt.googlecode.com/files/pylot_1.26.zip .
+sudo yum install unzip
+sudo pip install -U  numpy
+sudo pip install -U  python-dev
+sudo yum install  numpy-1.7.1-10.el7.src.rpm
+sudo yum install numpy
+sudo yum install Matplotlib
+sudo yum install python-matplotlib
+unzip pylot_1.26.zip
+
+cd pylot_1.26
+python run.py [options] args
+ls results/results_2015.11.07_03.34.06/results.html
+
+
+
+
+Siege ------
+
+mkdir siege
+cd siege/
+wget http://download.joedog.org/siege/siege-latest.tar.gz
+tar -zxvf siege-latest.tar.gz
+cd siege-*/
+./configure
+make
+sudo make install
+siege http://192.168.150.110:10001/requestdetails --time=5S  --log=/tmp/siege.log
+ls /tmp/siege.log
+
+
+
+
+jmeter ----
+
+
+wget http://apache.mirrors.tds.net//jmeter/binaries/apache-jmeter-2.13.tgz
+tar zxvf apache-jmeter-2.13.tgz
+cd apache-jmeter-2.13
+
+apache-jmeter-2.13/bin/jmeter.sh  -n -t your_script.jmx
+jmeter -n -t PerformanceTest.jmx -Jusers=4 -Jduration=300
+
+
+
+Gatling ---
+
+
+
+
+
+Install Java ----
+
+
+
+
+
+./jmeter
+ls
+cd bin/
+./jmeter
+ java –v
+which java
+java -version
+ ls /usr/java/jdk1.8.0_11/
+which java
+ls -l /usr/bin/java
+sudo alternatives --config java
+which java
+export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.65-2.b17.el7_1.x86_64/jre/
+export CLASSPATH=/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.65-2.b17.el7_1.x86_64/jre/lib/
+export CLASSPATH=$JAVA_HOME/jre/lib/ext:$JAVA_HOME/lib/tools.jar
+echo CLASSPATH
+echo $JAVA_HOME
+export CLASSPATH=$JAVA_HOME/jre/lib/ext:$JAVA_HOME/lib/tools.jar
+ export CLASSPATH=/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.65-2.b17.el7_1.x86_64/jre/jre/lib/ext:/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.65-2.b17.el7_1.x86_64/jre/jre/lib/
+ls -l /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.65-2.b17.el7_1.x86_64/jre/jre/lib/ext
+ls -l /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.65-2.b17.el7_1.x86_64/jre/lib/ext/
+ export CLASSPATH=/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.65-2.b17.el7_1.x86_64/jre/lib/ext:/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.65-2.b17.el7_1.x86_64/jre/lib/
+echo $CLASSPATH
+java
+pwd
+sh jmeter.sh
+ls
+vim ~/.bash_history
+exit
+vim ~/.bash_history
+ls
+ vim notes
+ls
+cd jmeter/
+jmeter -n -t your_script.jmx
+ls
+cd apache-jmeter-2.13/bin/jmeter.sh  -n -t your_script.jmx
+v
+
+
