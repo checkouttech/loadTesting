@@ -8,7 +8,7 @@ class HappyPath extends Simulation {
 
 
         val httpProtocol = http
-                .baseURL("http://192.168.150.110:23456")
+                .baseURL("http://192.168.150.110:10001")
                 .inferHtmlResources()
                 .acceptHeader("application/json")
                 .acceptEncodingHeader("gzip, deflate")
