@@ -105,7 +105,7 @@
             <collectionProp name="Arguments.arguments">
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                <stringProp name="Argument.value">${__StringFromFile(/Users/kmahant/Desktop/jmeter-demo/data.json)}</stringProp>
+                <stringProp name="Argument.value">${__StringFromFile(jmeter/data.json)}</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
               </elementProp>
             </collectionProp>
