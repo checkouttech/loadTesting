@@ -15,6 +15,7 @@ class HappyPath extends Simulation {
                 .acceptLanguageHeader("en-US,en;q=0.5")
                 .doNotTrackHeader("1")
                 .userAgentHeader("Mozilla/5.0 (Macintosh; Intel Mac OS X 10.10; rv:42.0) Gecko/20100101 Firefox/42.0")
+                .header("Cookie","test=test12345")    //  cookie - working 
 
 
 
@@ -27,6 +28,7 @@ class HappyPath extends Simulation {
                           .post("/requestdetails")
                           .check(status.is(200))
                           )
+                          // .get("/requestdetails")
 
         setUp(scn.inject(atOnceUsers(100))).protocols(httpProtocol)
 
