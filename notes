@@ -8,6 +8,17 @@ ab -t2 -c 100 -g out.data   http://192.168.150.110:10001/requestdetails
 
 
 
+# post_loc.txt contains the json you want to post
+# -p means to POST it
+# -H adds an Auth header (could be Basic or Token)
+# -T sets the Content-Type
+# -c is concurrent clients
+# -n is the number of requests to run in the test
+
+ab -t1 -n 100 -c 7 -H 'Content-Type:application/json'  -C 'cookie_name_1=cookie_value_1;cookie_name_2=cookie_value_2;' -p data1.json  -w   http://192.168.150.110:23456/requestdetails
+
+
+
 
 Pylot  ------
 
@@ -45,9 +56,22 @@ ls /tmp/siege.log
 
 
 
+Working post example 
+
+  siege --time=1S  --log=/tmp/siege.log  -H  'Content-Type:application/json' "http://192.168.150.110:23456/requestdetails POST <./data1.json" -c 5  -v
+  siege --time=1S  --log=/tmp/siege.log  -H  'Content-Type:application/json' -f urls.txt -c 5  -v
+  siege --time=2S  --log=/tmp/siege.log  -H  'Content-Type:application/json' --header="Cookie: rbkSignon=XXXXX" -f urls.txt -c 5  -v
+
+
+
+
+
+
+
 
 jmeter ----
 
+brew install jmeter --with-plugins
 
 wget http://apache.mirrors.tds.net//jmeter/binaries/apache-jmeter-2.13.tgz
 tar zxvf apache-jmeter-2.13.tgz
@@ -55,6 +79,10 @@ cd apache-jmeter-2.13
 
 apache-jmeter-2.13/bin/jmeter.sh  -n -t your_script.jmx
 jmeter -n -t PerformanceTest.jmx -Jusers=4 -Jduration=300
+
+example:
+
+sh jmeter.sh -n -p user.properties -t /smtp_test_param.jmx -l /reports/smtp_test_result.jtl -JUSERNAME=username -JPASSWORD=password -JUSERS=5 -JHOWMUCHTIMESTORUN=4 -JDURATION=20 -JENV=staging -JFILE=content.txt
 
 
 
